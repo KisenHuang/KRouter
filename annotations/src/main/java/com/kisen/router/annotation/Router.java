@@ -13,17 +13,8 @@ public @interface Router {
     Permission[] permissions() default Permission.DEFAULT;
 
     enum Permission {
-        /**
-         * 默认没有权限
-         */
         DEFAULT,
-        /**
-         * 设置登录权限
-         */
         LOGIN,
-        /**
-         * 设置设计师权限
-         */
         DESIGNER
     }
 }
