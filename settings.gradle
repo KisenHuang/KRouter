@@ -1,2 +1,2 @@
-include ':app', ':casemodule', ':designermodule', ':login', ':stub'
+include ':appmodule', ':casemodule', ':designermodule', ':login', ':stub'
 include ':router', ':annotations', ':compiler'
