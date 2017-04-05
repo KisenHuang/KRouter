@@ -1,2 +1,2 @@
-include ':appmodule', ':casemodule', ':designermodule', ':login', ':stub'
-include ':router', ':annotations', ':compiler'
+include ':demo:appmodule', ':demo:casemodule', ':demo:designermodule', ':demo:loginmodule'
+include ':library:router', ':library:annotations', ':library:compiler', ':library:stub'
