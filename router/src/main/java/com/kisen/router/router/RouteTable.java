@@ -14,18 +14,6 @@ public class RouteTable {
 
     private Map<String, Class<? extends Activity>> table = new HashMap<>();
 
-    /**
-     * 添加路由映射关系
-     * 如果重复，自动覆盖
-     *
-     * @param cell 单个映射关系类
-     */
-    public void addMapping(RouteCell cell) {
-        if (TextUtils.isEmpty(cell.getPath()) || cell.getClazz() == null)
-            return;
-        table.put(cell.getPath(), cell.getClazz());
-    }
-
     public Class<? extends Activity> getClassByPath(String path) {
         return TextUtils.isEmpty(path) ? null : table.get(path);
     }

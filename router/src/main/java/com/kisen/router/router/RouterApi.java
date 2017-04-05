@@ -49,16 +49,6 @@ public class RouterApi {
     }
 
     /**
-     * 手动配置路由表
-     *
-     * @param cell 映射关系
-     */
-    @SuppressWarnings("unused")
-    public static void addRouteTable(RouteCell cell) {
-        RouteHub.getInstance().addMapping(cell);
-    }
-
-    /**
      * 设置是否开启测试模式
      *
      * @param debug 是否开启

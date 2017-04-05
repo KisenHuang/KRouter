@@ -36,10 +36,6 @@ public class RouteHub {
         return permissions;
     }
 
-    public void addMapping(RouteCell cell) {
-        routeTable.addMapping(cell);
-    }
-
     public RouteTable getRouteTable() {
         return routeTable;
     }

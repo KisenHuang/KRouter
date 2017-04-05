@@ -16,12 +16,6 @@ public class App extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-//        RouteCell cell1 = new RouteCell("main", MainActivity.class);
-//        RouteCell cell2 = new RouteCell("case", CaseActivity.class);
-//        RouteCell cell3 = new RouteCell("designer", DesignerActivity.class);
-//        RouterApi.addRouteTable(cell1);
-//        RouterApi.addRouteTable(cell2);
-//        RouterApi.addRouteTable(cell3);
         RouterApi.initialize();
         RouterApi.addInterceptor(LoginInterceptor.getInstance());
     }
