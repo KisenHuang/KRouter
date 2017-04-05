@@ -38,6 +38,7 @@ dependencies {
     apt 'com.jakewharton:butterknife-compiler:8.4.0'
     testCompile 'junit:junit:4.12'
 //    provided 只编译不打包 stub只在编译时有用，通过注解处理器生成代码后不需要stub
+//    只供router使用
     provided project(':library:stub')
     compile project(':library:compiler')
 }
