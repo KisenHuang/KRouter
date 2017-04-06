@@ -30,7 +30,12 @@ public class RouterApi {
         if (!mapping.isEmpty() || !permissions.isEmpty()) {
             return;
         }
-        RouteInfo.init(permissions, mapping);
+//        try {
+            RouteInfo.init(permissions, mapping);
+//        } catch (DoubleKeyException e) {
+//            e.printStackTrace();
+//
+//        }
         RouteMonitor.getInstance().setupMapping(mapping);
     }
 

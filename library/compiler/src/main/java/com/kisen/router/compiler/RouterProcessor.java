@@ -13,6 +13,8 @@ import com.squareup.javapoet.TypeSpec;
 import com.squareup.javapoet.WildcardTypeName;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -195,11 +197,16 @@ public class RouterProcessor extends AbstractProcessor {
         MethodSpec.Builder generateMapping = MethodSpec.methodBuilder("generateMapping")
                 .addParameters(parameterSpecs)
                 .addModifiers(Modifier.PUBLIC, Modifier.STATIC);
+        Map<String, String> pathlist = new HashMap<>();
         for (Element element : elements) {
             Router route = element.getAnnotation(Router.class);
             String[] paths = route.value();
             ClassName className = ClassName.get((TypeElement) element);
             for (String path : paths) {
+                if (pathlist.containsKey(path)) {
+                    error(element, "the uri '%s' has be reuse,the previous is %s.class", path, pathlist.get(path));
+                }
+                pathlist.put(path, className.simpleName());
                 generateMapping.addStatement("map.put($S, $T.class)", path, className);
             }
             Router.Permission[] permissions = route.permissions();
@@ -209,6 +216,7 @@ public class RouterProcessor extends AbstractProcessor {
                 generateMapping.addStatement("list.add($S)", className.simpleName() + permission.ordinal());
             }
         }
+        pathlist.clear();
 
         TypeSpec type = TypeSpec.classBuilder(moduleName)
                 .addModifiers(Modifier.PUBLIC)

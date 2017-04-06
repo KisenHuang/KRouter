@@ -3,7 +3,6 @@ package com.kisen.router.router;
 import android.app.Activity;
 import android.text.TextUtils;
 
-import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -12,7 +11,7 @@ import java.util.Map;
  */
 public class RouteTable {
 
-    private Map<String, Class<? extends Activity>> table = new HashMap<>();
+    private Map<String, Class<? extends Activity>> table = new ExceptionMap();
 
     public Class<? extends Activity> getClassByPath(String path) {
         return TextUtils.isEmpty(path) ? null : table.get(path);

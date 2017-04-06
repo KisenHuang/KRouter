@@ -63,18 +63,18 @@ public class RouteMonitor {
     }
 
     public void printAll() {
-        String format = "%s\t%s\t%s";
+        String format = "%s\t%s\t%s\t%s%%\n";
         StringBuilder builder = new StringBuilder();
         builder.append("统计表数据\n")
-                .append("activity\tcount\tpercent\n");
+                .append("uri\t\tactivity\tcount\tpercent\n");
         for (String key : mapping.keySet()) {
             String activityName = mapping.get(key).getSimpleName();
             if (table.containsKey(key)) {
                 int count = table.get(key)[0];
                 float percent = count * 100f / totalCount;
-                builder.append(String.format(format, activityName, count, percent)).append("%\n");
+                builder.append(String.format(format, key, activityName, count, percent));
             } else {
-                builder.append(String.format(format, activityName, 0, 0)).append("%\n");
+                builder.append(String.format(format, key, activityName, 0, 0));
             }
         }
         RouteLog.i(TAG, builder.toString());
