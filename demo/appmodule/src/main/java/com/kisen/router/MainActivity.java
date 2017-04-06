@@ -24,4 +24,9 @@ public class MainActivity extends AppCompatActivity {
         RouterApi.build("designer").start(this);
     }
 
+    @Override
+    protected void onDestroy() {
+        RouterApi.printMonitor();
+        super.onDestroy();
+    }
 }

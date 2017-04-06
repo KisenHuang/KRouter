@@ -3,8 +3,8 @@ package com.kisen.router;
 import android.app.Application;
 
 import com.kisen.router.annotation.Modules;
-import com.kisen.router.router.RouterApi;
 import com.kisen.router.interceptor.LoginInterceptor;
+import com.kisen.router.router.RouterApi;
 
 /**
  * 程序入口
@@ -17,6 +17,7 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         RouterApi.initialize();
+        RouterApi.setDebug(true);
         RouterApi.addInterceptor(LoginInterceptor.getInstance());
     }
 }

@@ -24,13 +24,14 @@ public class RouterApi {
      * 必须调用该方法
      * </p>
      */
-    public static void initialize() {
+    public static synchronized void initialize() {
         List<String> permissions = RouteHub.getInstance().getPermissions();
         Map<String, Class<? extends Activity>> mapping = RouteHub.getInstance().getMapping();
         if (!mapping.isEmpty() || !permissions.isEmpty()) {
             return;
         }
         RouteInfo.init(permissions, mapping);
+        RouteMonitor.getInstance().setupMapping(mapping);
     }
 
     /**
@@ -56,6 +57,10 @@ public class RouterApi {
     @SuppressWarnings("unused")
     public static void setDebug(boolean debug) {
         RouteLog.setDebug(debug);
+    }
+
+    public static void printMonitor() {
+        RouteMonitor.getInstance().printAll();
     }
 
     /**

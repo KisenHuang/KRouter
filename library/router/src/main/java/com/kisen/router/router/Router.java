@@ -106,6 +106,7 @@ public class Router {
         Intent intent = getIntent(context);
         if (intent == null)
             return;
+        RouteMonitor.getInstance().write(uri.toString());
         if (requestCode >= 0 && context instanceof Activity) {
             ((Activity) context).startActivityForResult(intent, requestCode);
         } else {
