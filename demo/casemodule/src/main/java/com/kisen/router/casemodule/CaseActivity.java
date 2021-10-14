@@ -1,11 +1,12 @@
 package com.kisen.router.casemodule;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.kisen.router.annotation.Router;
-import com.kisen.router.router.RouterApi;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.kisen.router.RouterApi;
+import com.kisen.router.annotations.Router;
 
 @Router("case")
 public class CaseActivity extends AppCompatActivity {

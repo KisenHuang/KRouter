@@ -1,11 +1,13 @@
 package com.kisen.router.designermodule;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.kisen.router.annotation.Router;
+import androidx.appcompat.app.AppCompatActivity;
 
-@Router(value = "designer", permissions = Router.Permission.LOGIN)
+import com.kisen.router.annotations.Router;
+
+
+@Router(value = "designer", intercept = "login")
 public class DesignerActivity extends AppCompatActivity {
 
     @Override

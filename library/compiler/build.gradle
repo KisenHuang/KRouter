@@ -1,12 +1,16 @@
-apply plugin: 'java'
-
-dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile 'com.squareup:javapoet:1.8.0'
-    compile project(':library:annotations')
-    compile 'com.google.auto.service:auto-service:1.0-rc3'
+plugins {
+    id 'java-library'
 }
 
-sourceCompatibility = "1.7"
-targetCompatibility = "1.7"
+dependencies {
+    api fileTree(include: ['*.jar'], dir: 'libs')
+    api 'com.squareup:javapoet:1.12.1'
+    annotationProcessor 'com.google.auto.service:auto-service:1.0-rc3'
+    api 'com.google.auto.service:auto-service:1.0-rc3'
+    implementation project(':library:annotations')
+}
 
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
+}

@@ -1,2 +1,17 @@
-include ':demo:appmodule', ':demo:casemodule', ':demo:designermodule', ':demo:loginmodule'
-include ':library:router', ':library:annotations', ':library:compiler', ':library:stub'
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        jcenter() // Warning: this repository is going to shut down soon
+    }
+}
+rootProject.name = "KRouter"
+include ':app'
+include ':library:annotations'
+include ':library:compiler'
+include ':library:router'
+include ':library:stub'
+include ':demo:casemodule'
+include ':demo:loginmodule'
+include ':demo:designermodule'
