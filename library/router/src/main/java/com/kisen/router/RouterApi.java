@@ -3,9 +3,6 @@ package com.kisen.router;
 import android.app.Activity;
 import android.net.Uri;
 
-
-//import com.kisen.router.stub.RouteInfo;
-
 import com.kisen.router.stub.RouteInfo;
 
 import java.util.ArrayList;

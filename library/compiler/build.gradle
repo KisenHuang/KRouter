@@ -3,14 +3,16 @@ plugins {
 }
 
 dependencies {
-    api fileTree(include: ['*.jar'], dir: 'libs')
     api 'com.squareup:javapoet:1.12.1'
     annotationProcessor 'com.google.auto.service:auto-service:1.0-rc3'
-    api 'com.google.auto.service:auto-service:1.0-rc3'
-    implementation project(':library:annotations')
+    compileOnly 'com.google.auto.service:auto-service:1.0-rc3'
+//    implementation project(':library:annotations')
+    api 'io.github.kisenhuang:krouter-annotation:1.1.0'
 }
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
     targetCompatibility = JavaVersion.VERSION_1_8
 }
+
+apply from: rootProject.file('gradle/publish.gradle')

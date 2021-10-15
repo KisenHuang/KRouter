@@ -47,7 +47,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    api project(':library:router')
-    kapt project(':library:compiler')
-
+//    api project(':library:router')
+//    kapt project(':library:compiler')
+    api 'io.github.kisenhuang:krouter-api:1.1.0'
+    kapt 'io.github.kisenhuang:krouter-compiler:1.1.1'
 }
